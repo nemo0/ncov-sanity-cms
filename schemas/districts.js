@@ -93,6 +93,10 @@ export default {
         title: 'North Dinajpur',
         value: 'north-dinajpur',
       },
+      {
+        title: 'West Bengal',
+        value: 'west-bengal',
+      },
     ],
   },
 };
