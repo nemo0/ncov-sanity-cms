@@ -7,6 +7,7 @@ import districts from './districts';
 import name from './name';
 import address from './address';
 import phone from './phone';
+import verified from './verified';
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
@@ -29,13 +30,14 @@ export default createSchema({
           type: 'string',
           title: 'Timing(e.g. 10.00a.m - 12.00p.m)',
         },
+        verified,
       ],
     },
     {
       name: 'oxygen',
       type: 'document',
       title: 'Oxygen Suppliers',
-      fields: [districts, name, phone, address],
+      fields: [districts, name, phone, address, verified],
     },
     {
       name: 'ambulance-hospitals',
@@ -64,6 +66,7 @@ export default createSchema({
         name,
         phone,
         address,
+        verified,
       ],
     },
     {
@@ -103,6 +106,7 @@ export default createSchema({
           type: 'string',
           title: 'Timing(e.g. 10.00a.m - 12.00p.m)',
         },
+        verified,
       ],
     },
     {
@@ -119,6 +123,7 @@ export default createSchema({
           type: 'string',
           title: 'Organization',
         },
+        verified,
       ],
     },
     {
@@ -146,6 +151,24 @@ export default createSchema({
           name: 'image',
           type: 'image',
           title: 'Image',
+        },
+      ],
+    },
+    {
+      name: 'contributors',
+      type: 'document',
+      title: 'Contributors and Sponsors',
+      fields: [
+        {
+          name: 'name',
+          type: 'string',
+          title: 'Name of Contributor or Sponsor',
+          validation: (Rule) => Rule.required(),
+        },
+        {
+          name: 'url',
+          type: 'url',
+          title: 'URL or Social Media Handle',
         },
       ],
     },
